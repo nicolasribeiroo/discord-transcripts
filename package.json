@@ -1,14 +1,19 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "@nicolasribeiroo/discord-react-transcripts",
+	"name": "@nicolasribeiroo/discord-transcripts",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
 		"build": "pnpm -- turbo run build --concurrency=4",
 		"build:affected": "turbo run build --filter='...[origin/main]' --concurrency=4",
+		"test": "turbo run test --concurrency=4",
+		"test:affected": "turbo run test --filter='...[origin/main]' --concurrency=4",
 		"lint": "turbo run lint --concurrency=4",
+		"lint:affected": "turbo run lint --filter='...[origin/main]' --concurrency=4",
 		"format": "turbo run format --concurrency=4",
+		"format:affected": "turbo run format --filter='...[origin/main]' --concurrency=4",
 		"fmt": "turbo run format --concurrency=4",
+		"fmt:affected": "turbo run format --filter='...[origin/main]' --concurrency=4",
 		"prepare": "is-ci || husky install"
 	},
 	"type": "module",
@@ -23,12 +28,13 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/nicolasribeiroo/discord-react-transcripts.git"
+		"url": "https://github.com/nicolasribeiroo/discord-transcripts.git"
 	},
 	"bugs": {
-		"url": "https://github.com/nicolasribeiroo/discord-react-transcripts/issues"
+		"url": "https://github.com/nicolasribeiroo/discord-transcripts/issues"
 	},
 	"devDependencies": {
+		"@vitest/coverage-v8": "^0.34.6",
 		"eslint": "^8.48.0",
 		"eslint-config-neon": "^0.1.57",
 		"husky": "^8.0.3",
@@ -37,7 +43,9 @@
 		"prettier": "^3.0.3",
 		"tsup": "^7.2.0",
 		"turbo": "^1.10.15",
-		"typescript": "^5.2.2"
+		"typescript": "^5.2.2",
+		"unocss": "^0.56.5",
+		"vitest": "^0.34.6"
 	},
 	"engines": {
 		"node": ">=18.17.1"

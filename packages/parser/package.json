@@ -1,27 +1,32 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "@nicolasribeiroo/discord-components-react",
+	"name": "@nicolasribeiroo/discord-parser",
 	"version": "0.1.0",
-	"description": "",
+	"description": "A set of functions to parse discord messages",
 	"scripts": {
-		"build": "vite build",
+		"test": "vitest run",
+		"build": "tsc --noEmit && tsup",
 		"lint": "prettier --check . && eslint --format=pretty src",
 		"format": "prettier --write . && eslint --fix --format=pretty src"
 	},
-	"type": "module",
 	"exports": {
 		".": {
-			"import": {
+			"require": {
 				"types": "./dist/index.d.ts",
 				"default": "./dist/index.js"
+			},
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
 			}
 		}
 	},
-	"module": "./dist/index.js",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
-	"sideEffects": false,
 	"directories": {
-		"lib": "src"
+		"lib": "src",
+		"test": "__tests__"
 	},
 	"files": [
 		"dist"
@@ -34,33 +39,26 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/nicolasribeiroo/discord-transcripts.git",
-		"directory": "packages/ui"
+		"directory": "packages/parser"
 	},
 	"bugs": {
 		"url": "https://github.com/nicolasribeiroo/discord-transcripts/issues"
 	},
 	"dependencies": {
-		"clsx": "^2.0.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"tailwind-merge": "^1.14.0"
+		"discord-api-types": "^0.37.60",
+		"twemoji": "^14.0.2"
 	},
 	"devDependencies": {
 		"@types/node": "^20.5.2",
-		"@types/react": "^18.2.0",
-		"@types/react-dom": "^18.2.0",
-		"@unocss/eslint-config": "^0.56.5",
-		"@unocss/reset": "^0.56.5",
-		"@vitejs/plugin-react": "^4.1.0",
+		"@vitest/coverage-v8": "^0.34.6",
 		"eslint": "^8.48.0",
 		"eslint-config-neon": "^0.1.57",
 		"eslint-formatter-pretty": "^5.0.0",
 		"prettier": "^3.0.3",
+		"tsup": "^7.2.0",
 		"turbo": "^1.10.15",
-		"typescript": "^4.9.5",
-		"unocss": "^0.56.5",
-		"vite": "^4.4.11",
-		"vite-plugin-dts": "^3.6.0"
+		"typescript": "^5.2.2",
+		"vitest": "^0.34.6"
 	},
 	"engines": {
 		"node": ">=16.11.0"

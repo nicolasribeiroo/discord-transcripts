@@ -1,5 +1,5 @@
 {
-	"extends": ["../../.eslintrc.json", "neon/react", "neon/prettier"],
+	"extends": ["../../.eslintrc.json", "neon/react", "@unocss", "neon/prettier"],
 	"settings": {
 		"react": {
 			"version": "detect"

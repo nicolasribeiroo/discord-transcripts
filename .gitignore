@@ -28,8 +28,11 @@ dist
 .DS_Store
 .turbo
 tsconfig.tsbuildinfo
+coverage
 out
 package.tgz
+tsup.config.bundled*
+vitest.config.ts.timestamp*
 
 # Bun
 bun.lockb

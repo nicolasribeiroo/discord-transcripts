@@ -2,4 +2,3 @@
 coverage
 dist
 tsup.config.bundled*
-vite.config.ts.timestamp*

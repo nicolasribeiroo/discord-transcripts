@@ -1,88 +1,112 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    ".gitignore",
-    ".prettierrc.json",
-    ".eslintrc.json",
-    "LICENSE",
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": [
+		".gitignore",
+		".prettierrc.json",
+		".eslintrc.json",
+		"LICENSE",
 		"package.json",
-    "tsconfig.eslint.json",
+		"tsconfig.eslint.json",
 		"tsconfig.json",
 		"tsup.config.ts",
-    "turbo.json",
-    "pnpm-lock.yaml",
+		"turbo.json",
+		"pnpm-lock.yaml",
 		"pnpm-workspace.yaml"
-  ],
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "src/**/*.ts",
+	],
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"src/**/*.ts",
 				"src/**/*.tsx",
 				"src/**/*.js",
 				"src/**/*.mjs",
 				"src/**/*.cjs",
-        "package.json",
+				"package.json",
 				"tsconfig.eslint.json",
 				"tsconfig.json"
-      ],
-      "outputs": ["dist/**/*"],
+			],
+			"outputs": ["dist/**/*"],
 			"outputMode": "errors-only"
-    },
-    "@nicolasribeiroo/discord-react-components#build": {
-      "dependsOn": ["^build"],
+		},
+		"@nicolasribeiroo/discord-components-react#build": {
+			"dependsOn": ["^build"],
 			"inputs": ["../../tsconfig.json", "src/**/*.ts", "tsconfig.json", "vite.config.ts"],
 			"outputs": ["dist/**"]
-    },
-    "lint": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "../../.eslintrc.json",
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../vitest.config.ts",
+				"__tests_/**/*.ts",
+				"__tests_/**/*.js",
+				"__tests_/**/*.mjs",
+				"__tests_/**/*.cjs",
+				"__mocks__/**/*.ts",
+				"__mocks__/**/*.js",
+				"__mocks__/**/*.mjs",
+				"__mocks__/**/*.cjs",
+				"src/**/*.ts",
+				"src/**/*.tsx",
+				"src/**/*.js",
+				"src/**/*.mjs",
+				"src/**/*.cjs",
+				"package.json",
+				"tsconfig.eslint.json",
+				"tsconfig.json"
+			],
+			"outputs": ["coverage/**/*"],
+			"outputMode": "new-only"
+		},
+		"lint": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../.eslintrc.json",
 				"../../.prettierignore",
 				"../../.prettierrc.json",
 				"../../tsconfig.eslint.json",
-        ".prettierignore",
+				".prettierignore",
 				".prettierrc.js",
-        "src/**/*.ts",
+				"src/**/*.ts",
 				"src/**/*.tsx",
 				"src/**/*.js",
 				"src/**/*.mjs",
 				"src/**/*.cjs",
 				"src/**/*.css",
-        "package.json",
+				"package.json",
 				"tsconfig.eslint.json",
 				"tsconfig.json"
-      ],
-      "outputs": [],
+			],
+			"outputs": [],
 			"outputMode": "errors-only"
-    },
-    "format": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "../../.eslintrc.json",
+		},
+		"format": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"../../.eslintrc.json",
 				"../../.prettierignore",
 				"../../.prettierrc.json",
 				"../../tsconfig.eslint.json",
-        ".prettierignore",
+				".prettierignore",
 				".prettierrc.js",
-        "src/**/*.ts",
+				"src/**/*.ts",
 				"src/**/*.tsx",
 				"src/**/*.js",
 				"src/**/*.mjs",
 				"src/**/*.cjs",
 				"src/**/*.css",
-        "package.json",
+				"package.json",
 				"tsconfig.eslint.json",
 				"tsconfig.json"
-      ],
-      "outputs": [],
+			],
+			"outputs": [],
 			"outputMode": "errors-only"
-    },
-    "dev": {
+		},
+		"dev": {
 			"dependsOn": ["^build"],
 			"outputMode": "full",
 			"cache": false,
 			"persistent": true
 		}
-  }
+	}
 }
