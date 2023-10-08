@@ -1,0 +1,40 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Packages
+node_modules
+
+# Log files
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Env
+.env
+
+# Dist
+dist
+
+# Miscellaneous
+.tmp
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+.turbo
+tsconfig.tsbuildinfo
+out
+package.tgz
+
+# Bun
+bun.lockb
+
+# Cache
+.prettiercache
+.eslintcache
+.vercel

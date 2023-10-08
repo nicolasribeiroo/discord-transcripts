@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "@nicolasribeiroo/discord-react-transcripts",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build": "pnpm -- turbo run build --concurrency=4",
+		"build:affected": "turbo run build --filter='...[origin/main]' --concurrency=4",
+		"lint": "turbo run lint --concurrency=4",
+		"format": "turbo run format --concurrency=4",
+		"fmt": "turbo run format --concurrency=4",
+		"prepare": "is-ci || husky install"
+	},
+	"type": "module",
+	"contributors": [
+		"Nicolas Ribeiro <git@niskii.dev>"
+	],
+	"keywords": [
+		"discord",
+		"api",
+		"react",
+		"transcripts"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nicolasribeiroo/discord-react-transcripts.git"
+	},
+	"bugs": {
+		"url": "https://github.com/nicolasribeiroo/discord-react-transcripts/issues"
+	},
+	"devDependencies": {
+		"eslint": "^8.48.0",
+		"eslint-config-neon": "^0.1.57",
+		"husky": "^8.0.3",
+		"is-ci": "^3.0.1",
+		"lint-staged": "^14.0.1",
+		"prettier": "^3.0.3",
+		"tsup": "^7.2.0",
+		"turbo": "^1.10.15",
+		"typescript": "^5.2.2"
+	},
+	"engines": {
+		"node": ">=18.17.1"
+	},
+	"packageManager": "pnpm@8.6.10"
+}

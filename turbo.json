@@ -1,0 +1,88 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    ".gitignore",
+    ".prettierrc.json",
+    ".eslintrc.json",
+    "LICENSE",
+		"package.json",
+    "tsconfig.eslint.json",
+		"tsconfig.json",
+		"tsup.config.ts",
+    "turbo.json",
+    "pnpm-lock.yaml",
+		"pnpm-workspace.yaml"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "src/**/*.ts",
+				"src/**/*.tsx",
+				"src/**/*.js",
+				"src/**/*.mjs",
+				"src/**/*.cjs",
+        "package.json",
+				"tsconfig.eslint.json",
+				"tsconfig.json"
+      ],
+      "outputs": ["dist/**/*"],
+			"outputMode": "errors-only"
+    },
+    "@nicolasribeiroo/discord-react-components#build": {
+      "dependsOn": ["^build"],
+			"inputs": ["../../tsconfig.json", "src/**/*.ts", "tsconfig.json", "vite.config.ts"],
+			"outputs": ["dist/**"]
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "../../.eslintrc.json",
+				"../../.prettierignore",
+				"../../.prettierrc.json",
+				"../../tsconfig.eslint.json",
+        ".prettierignore",
+				".prettierrc.js",
+        "src/**/*.ts",
+				"src/**/*.tsx",
+				"src/**/*.js",
+				"src/**/*.mjs",
+				"src/**/*.cjs",
+				"src/**/*.css",
+        "package.json",
+				"tsconfig.eslint.json",
+				"tsconfig.json"
+      ],
+      "outputs": [],
+			"outputMode": "errors-only"
+    },
+    "format": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "../../.eslintrc.json",
+				"../../.prettierignore",
+				"../../.prettierrc.json",
+				"../../tsconfig.eslint.json",
+        ".prettierignore",
+				".prettierrc.js",
+        "src/**/*.ts",
+				"src/**/*.tsx",
+				"src/**/*.js",
+				"src/**/*.mjs",
+				"src/**/*.cjs",
+				"src/**/*.css",
+        "package.json",
+				"tsconfig.eslint.json",
+				"tsconfig.json"
+      ],
+      "outputs": [],
+			"outputMode": "errors-only"
+    },
+    "dev": {
+			"dependsOn": ["^build"],
+			"outputMode": "full",
+			"cache": false,
+			"persistent": true
+		}
+  }
+}
